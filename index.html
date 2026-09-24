@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Portal CBT - Try Out TKA Fisika 2026</title>
+  <title>Portal CBT Terkunci - Try Out TKA Fisika 2026</title>
   
   <!-- Font Kaligrafi Dancing Script & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
       padding: 0;
     }
 
-    /* Kunci seleksi teks di elemen dashboard/modal agar tidak terganggu saat klik */
+    /* Kunci seleksi teks pada panel modal/dashboard */
     .overlay, header, .card-footer-signature, button {
       -webkit-user-select: none;
       user-select: none;
@@ -50,7 +50,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* === BACKGROUND CERAH FISIKA === */
+    /* Background Cerah Fisika */
     .bg-mesh {
       position: absolute;
       inset: 0;
@@ -73,7 +73,7 @@
       pointer-events: none;
     }
 
-    /* === OVERLAY MODAL === */
+    /* Overlay & Modal */
     .overlay {
       position: fixed;
       inset: 0;
@@ -82,7 +82,7 @@
       align-items: center;
       padding: 20px;
       z-index: 9999;
-      background: rgba(15, 23, 42, 0.5);
+      background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       overflow-y: auto;
@@ -97,7 +97,7 @@
       max-width: 420px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 20px 45px -10px rgba(37, 99, 235, 0.12);
+      box-shadow: 0 20px 45px -10px rgba(37, 99, 235, 0.15);
       z-index: 10;
     }
 
@@ -210,7 +210,7 @@
 
     .rules-item:last-child { margin-bottom: 0; }
 
-    /* Tombol Utama */
+    /* Tombol */
     .btn-glow {
       width: 100%;
       padding: 14px;
@@ -366,7 +366,7 @@
       to { opacity: 0.65; }
     }
 
-    /* Container Google Form (Touch-Scroll Bebas Macet di HP) */
+    /* Area Formulir (Touch-Scroll Bebas Macet di HP) */
     .form-container {
       position: absolute;
       top: 60px;
@@ -403,8 +403,6 @@
   <!-- 1. Beranda Ujian / Start Screen -->
   <div id="startScreen" class="overlay">
     <div class="card">
-      
-      <!-- Ikon Atom Fisika -->
       <div class="atom-badge">
         <svg class="atom-svg" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="7" fill="#2563eb" />
@@ -417,7 +415,7 @@
 
       <span class="sub-badge">Simulasi & Uji Coba</span>
       <h1>TRY OUT TKA FISIKA 2026</h1>
-      <p class="subtitle">Uji kemampuan analisis fisikamu, kelola waktu dengan baik, dan utamakan integritas.</p>
+      <p class="subtitle">Fokus penuh pada soal. Sistem mendeteksi segala bentuk pintasan layar.</p>
 
       <div class="info-grid">
         <div class="info-box">
@@ -430,7 +428,7 @@
         </div>
         <div class="info-box">
           <span class="label">SISTEM UJIAN</span>
-          <span class="value">🔒 Terkunci (Kiosk)</span>
+          <span class="value">🔒 Kiosk Ketat</span>
         </div>
         <div class="info-box">
           <span class="label">MAKS. PERINGATAN</span>
@@ -445,11 +443,11 @@
         </div>
         <div class="rules-item">
           <span>•</span>
-          <span>Dilarang beralih tab, membalas chat, atau keluar browser.</span>
+          <span><b>Dilarang</b> menyentuh Bola Pintas, Jendela Mengambang, atau Bar Notifikasi.</span>
         </div>
         <div class="rules-item">
           <span>•</span>
-          <span>Jika melanggar 3x, <b>perangkat terkunci permanen</b> dan tidak bisa dibuka kembali.</span>
+          <span>Pelanggaran 3x akan <b>mengunci perangkat HP permanen</b>.</span>
         </div>
       </div>
 
@@ -469,7 +467,7 @@
     <div class="card" style="border-color: #fca5a5;">
       <div style="font-size: 2.2rem; margin-bottom: 6px;">⚠️</div>
       <h1 style="color: #dc2626; font-size: 1.25rem;">UJIAN TERKUNCI!</h1>
-      <p id="warningText" class="subtitle" style="margin-top: 6px; color: #475569;">Terdeteksi meninggalkan halaman ujian.</p>
+      <p id="warningText" class="subtitle" style="margin-top: 6px; color: #475569;">Terdeteksi membuka jendela mengambang atau bilah luar.</p>
       
       <div class="token-box">
         <label for="inputToken">MASUKKAN TOKEN PENGAWAS:</label>
@@ -517,24 +515,22 @@
         <span class="violation-badge" id="violationText">Pelanggaran: 0/3</span>
       </div>
     </div>
-    <!-- Timer Header 75 Menit -->
     <div class="timer-badge" id="timer">75:00</div>
   </header>
 
-  <!-- Area Google Form Resmi TO TKA Fisika -->
+  <!-- Area Google Form Resmi TO Fisika -->
   <div class="form-container" id="frameContainer">
-    <!-- Iframe dimuat secara dinamis via JavaScript -->
+    <!-- Iframe diinjeksi via JavaScript -->
   </div>
 
   <script>
     // === KONFIGURASI SISTEM UJIAN ===
-    const EXAM_ID = "TO_TKA_FISIKA_2026"; // ID unik ujian Try Out Fisika
-    const PROCTOR_TOKEN = "TOTKAFISIKA2026"; // Token Pengawas Try Out Fisika
+    const EXAM_ID = "TO_TKA_FISIKA_2026"; 
+    const PROCTOR_TOKEN = "TOTKAFISIKA2026"; 
     
     // TAUTAN GOOGLE FORM:
     const FORM_URL = "https://forms.gle/PF1i9ntvV8tZqmDK8";
     
-    // Durasi Waktu 75 Menit:
     let examDurationMinutes = 75;
     const maxViolations = 3;
 
@@ -542,6 +538,7 @@
     let violationCount = 0;
     let timerInterval = null;
     let isExamActive = false;
+    let wakeLockSentinel = null;
 
     // Elemen DOM
     const startScreen = document.getElementById('startScreen');
@@ -555,9 +552,9 @@
     const tokenError = document.getElementById('tokenError');
     const frameContainer = document.getElementById('frameContainer');
 
-    // ==========================================
-    // 1. CEK STATUS KUNCI PERANGKAT (LOCAL STORAGE)
-    // ==========================================
+    // ====================================================
+    // 1. CEK STATUS KUNCI PERANGKAT PERMANEN (LOCAL STORAGE)
+    // ====================================================
     function checkDeviceLock() {
       const lockData = localStorage.getItem("CBT_LOCK_" + EXAM_ID);
       if (lockData) {
@@ -568,7 +565,6 @@
       return false;
     }
 
-    // Jalankan pemeriksaan awal sebelum formulir dimuat
     if (!checkDeviceLock()) {
       frameContainer.innerHTML = `
         <iframe 
@@ -583,21 +579,19 @@
       `;
     }
 
-    // ==========================================
+    // ====================================================
     // 2. EKSEKUSI KUNCI PERANGKAT PERMANEN
-    // ==========================================
+    // ====================================================
     function lockDevicePermanently(reason) {
       isExamActive = false;
       clearInterval(timerInterval);
 
-      // Simpan status kunci permanen di memori penyimpanan HP
       localStorage.setItem("CBT_LOCK_" + EXAM_ID, JSON.stringify({
         locked: true,
         reason: reason,
         timestamp: new Date().toISOString()
       }));
 
-      // Bersihkan formulir dari DOM layar
       frameContainer.innerHTML = "";
       showPermanentLockScreen(reason);
     }
@@ -613,9 +607,9 @@
       }
     }
 
-    // ==========================================
+    // ====================================================
     // 3. RESET KUNCI PERANGKAT OLEH PENGAWAS
-    // ==========================================
+    // ====================================================
     function toggleProctorReset() {
       const box = document.getElementById('proctorResetBox');
       box.classList.toggle('hidden');
@@ -626,7 +620,6 @@
       const err = document.getElementById('resetError');
       
       if (input === PROCTOR_TOKEN) {
-        // Hapus status kunci dari storage HP murid
         localStorage.removeItem("CBT_LOCK_" + EXAM_ID);
         alert("Kunci perangkat berhasil dibuka oleh pengawas. Halaman akan dimuat ulang.");
         location.reload();
@@ -635,16 +628,23 @@
       }
     }
 
-    // ==========================================
+    // ====================================================
     // 4. ALUR UJIAN AKTIF
-    // ==========================================
-    function startExam() {
+    // ====================================================
+    async function startExam() {
       const docEl = document.documentElement;
       if (docEl.requestFullscreen) {
         docEl.requestFullscreen().catch(() => {});
       } else if (docEl.webkitRequestFullscreen) {
         docEl.webkitRequestFullscreen();
       }
+
+      // Aktifkan Screen WakeLock agar layar HP tidak redup otomatis
+      try {
+        if ('wakeLock' in navigator) {
+          wakeLockSentinel = await navigator.wakeLock.request('screen');
+        }
+      } catch (err) {}
 
       startScreen.classList.add('hidden');
       isExamActive = true;
@@ -707,25 +707,58 @@
       }
     }
 
-    // ==========================================
-    // 5. DETEKSI CURANG (EVENT LISTENERS)
-    // ==========================================
+    // ====================================================================
+    // 5. DETEKSI KECURANGAN KETAT (JENDELA MENGAMBANG, BOLA PINTAS, SPLIT)
+    // ====================================================================
+
+    // A. DETEKSI HILANG FOKUS SISTEM REAL-TIME (Anti-Jendela Mengambang & Bola Pintas)
+    // document.hasFocus() bernilai TRUE saat murid menyentuh portal atau iframe Google Form.
+    // document.hasFocus() otomatis bernilai FALSE saat murid menyentuh Bola Pintas, Jendela Mengambang, atau Notifikasi!
+    let unfocusedDuration = 0;
+    setInterval(() => {
+      if (!isExamActive) return;
+
+      if (!document.hasFocus()) {
+        unfocusedDuration += 250;
+        // Jika kehilangan fokus lebih dari 400ms (bukan sekadar glitch ketukan biasa)
+        if (unfocusedDuration >= 500 && warningModal.classList.contains('hidden') && lockScreen.classList.contains('hidden')) {
+          recordViolation("Menyentuh Jendela Mengambang / Bola Pintas / Layar Luar");
+          unfocusedDuration = 0;
+        }
+      } else {
+        unfocusedDuration = 0;
+      }
+    }, 250);
+
+    // B. DETEKSI EVENT BLUR (Kehilangan fokus window seketika)
+    window.addEventListener('blur', () => {
+      if (!isExamActive) return;
+      setTimeout(() => {
+        if (!document.hasFocus() && warningModal.classList.contains('hidden') && lockScreen.classList.contains('hidden')) {
+          recordViolation("Membuka aplikasi mengambang atau bilah pintas");
+        }
+      }, 400);
+    });
+
+    // C. DETEKSI PINDAH TAB / MINIMIZE BROWSER
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && isExamActive) {
         recordViolation("Membuka aplikasi lain atau berganti layar");
       }
     });
 
+    // D. DETEKSI KELUAR FULLSCREEN / LAYAR BELAH (SPLIT SCREEN)
     document.addEventListener('fullscreenchange', handleFullscreenExit);
     document.addEventListener('webkitfullscreenchange', handleFullscreenExit);
 
     function handleFullscreenExit() {
       const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
-      if (!isFullscreen && isExamActive && warningModal.classList.contains('hidden')) {
-        recordViolation("Menutup mode layar penuh");
+      if (!isFullscreen && isExamActive && warningModal.classList.contains('hidden') && lockScreen.classList.contains('hidden')) {
+        recordViolation("Menutup mode layar penuh / Mengaktifkan Layar Belah");
       }
     }
 
+    // Blokir klik kanan
     document.addEventListener('contextmenu', (e) => e.preventDefault());
   </script>
 </body>
